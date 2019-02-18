@@ -1,24 +1,33 @@
 <template>
     <div id="leftPanel">
-        <div id="sourcesTitle">
-            <H3>Fuentes</H3>
-            <b-form-checkbox
-      id="checkbox1"
-      v-model="status"
-      value="accepted"
-      unchecked-value="not_accepted"
-    >
-      Fuente 1
-    </b-form-checkbox>
+        <H3>Fuentes</H3>
+            <div id="sourcesTitle" v-for="item in sources" v-bind:key="item">
+                <b-form-checkbox
+                    v-bind:id=item.sourceId
+                    v-model="status"
+                    value="accepted"
+                    unchecked-value="not_accepted"
+                    >
+                    {{item.title}}
+                </b-form-checkbox>
         </div>
-        
-
+        <br>
+        <a href="#">AGREGAR FUENTE</a>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Sources'
+    name: 'Sources',
+    data() {
+        return {
+            sources: [{sourceId: "1",title:"fuente 1", endpoint:"https://newsapi.org/v2/everything?q=bitcoin&from=2019-01-18&sortBy=publishedAt&apiKey=50ecf648f934413d99f3b15fe1535412"},
+            {sourceId: "2",title:"fuente 2"},
+            {sourceId: "3",title:"fuente 3"}
+            
+            ],
+        }
+    },
 
 }
 </script>

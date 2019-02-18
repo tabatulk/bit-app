@@ -1,26 +1,19 @@
 <template>
   <div id="app">
     <NavBar />
-    <div id="panelContainer">
-      <Sources />
-      <NewsContainer />
+    <router-view/>
     </div>
 
-  </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
-import Sources from './components/Sources.vue';
-import NewsContainer from './components/NewsContainer.vue';
 
 
 export default {
   name: 'app',
   components: {
     NavBar,
-    Sources,
-    NewsContainer
   }
 }
 </script>
