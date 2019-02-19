@@ -13,7 +13,6 @@
           <b-nav-item :to="{ name: 'MainPage' }">Noticias</b-nav-item>
           <b-nav-item :to="{ name: 'Profile' }">Perfil</b-nav-item>
           <b-nav-item :to="{ name: 'Settings' }">Configuración</b-nav-item>
-          <b-nav-item :to="{ name: 'Prueba' }">Prueba</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
