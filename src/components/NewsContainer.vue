@@ -1,62 +1,72 @@
 <template>
-    <div id="rightPanel">
-        <div>
-        <NewsCard v-bind:newsSource1='this.newsSource1' />
-        </div>
-        <div id="pagination">
-            <NewsPagination />
-        </div>
-        
+  <div id="rightPanel">
+    <div>
+      <NewsCard v-bind:articles="this.newsArticles"/>
     </div>
-    
+    <div id="pagination">
+      <NewsPagination/>
+    </div>
+  </div>
 </template>
 
 <script>
-import NewsCard from './NewsCard.vue';
-import NewsPagination from './NewsPagination.vue';
-import axios from 'axios';
+import NewsCard from "./NewsCard.vue";
+import NewsPagination from "./NewsPagination.vue";
+import Sources from "./Sources.vue";
+import axios from "axios";
 export default {
-    name: 'NewsContainer',
-    components: {
-       NewsCard,
-       NewsPagination
+  name: "NewsContainer",
+  components: {
+    NewsCard,
+    NewsPagination
   },
   data() {
-        return {
-            newsSource1: [],
-            
-        }
-    },
-    mounted () {
-        var comp = this
-        axios.get('https://newsapi.org/v2/everything?q=bitcoin&from=2019-01-18&sortBy=publishedAt&apiKey=50ecf648f934413d99f3b15fe1535412')
-        .then(function(res){
-            comp.newsSource1 = res.data.articles;
-            // eslint-disable-next-line no-console
-            console.log(comp.newsSource1)
+    return {
+      newsArticles: []
+    };
+  },
+
+  methods: {
+    getArticles(source) {
+      axios.get(source.endpoint).then(
+        function(res) {
+          // eslint-disable-next-line no-console
+          console.log(
+            "Articulos procesados de " + source.title + " " + res.items.length
+          );
+          return res.items;
         },
-        function(err){
-            // eslint-disable-next-line no-console
-            console.log(err)
-        })
-
+        function(err) {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        }
+      );
     }
-}
+  },
 
+  mounted() {
+    var comp = this;
+    var sources = Sources.data();
+
+    for (var i = 0; i < sources.sourcesArray.length; i++) {
+      comp.newsArticles.push(comp.getArticles(sources.sourcesArray[i]));
+    }
+  }
+};
 </script>
 
 <style>
 #rightPanel {
-width: 800px;
-height: 100%;
-margin: 10px;
-background-color: cadetblue;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  width: 800px;
+  height: 100%;
+  margin: 10px;
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 #pagination {
-    align-self: center;
-    justify-self: flex-end
+  align-self: center;
+  justify-self: flex-end;
 }
 </style>
