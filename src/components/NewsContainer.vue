@@ -22,19 +22,25 @@ export default {
   },
   data() {
     return {
-      newsArticles: []
+      newsArticles: {}
     };
   },
 
   methods: {
-    getArticles(source) {
+    // Este método es para traer los artículos del Endpoint del Source
+    getArticles(source, articles) {
       axios.get(source.endpoint).then(
         function(res) {
           // eslint-disable-next-line no-console
-          console.log(
-            "Articulos procesados de " + source.title + " " + res.items.length
-          );
-          return res.items;
+          console.log("Estamos imprimiendo el res feed");
+          // eslint-disable-next-line no-console
+          //console.dir(
+          //res.data.items // dice que res.items está uncaught in promise - cannot read length of undefined
+          //);
+          //articles.push.apply(articles, res.data.items);
+          articles[source.title] = res.data.items;
+          // eslint-disable-next-line no-console
+          console.log(articles);
         },
         function(err) {
           // eslint-disable-next-line no-console
@@ -45,11 +51,15 @@ export default {
   },
 
   mounted() {
+    // eslint-disable-next-line no-console
+    console.log(">>MOUNTED");
     var comp = this;
     var sources = Sources.data();
-
+    // Este for recorre el array de data de Sources, para ir usando la función getArticles en cada Source
     for (var i = 0; i < sources.sourcesArray.length; i++) {
-      comp.newsArticles.push(comp.getArticles(sources.sourcesArray[i]));
+      comp.getArticles(sources.sourcesArray[i], comp.newsArticles);
+      // eslint-disable-next-line no-console
+      console.log("Estamos imprimiendo el NewsArticles" + comp.newsArticles);
     }
   }
 };

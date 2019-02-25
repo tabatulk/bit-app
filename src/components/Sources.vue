@@ -25,43 +25,42 @@ export default {
           sourceId: "1",
           title: "El observador",
           endpoint:
-            "https://feed2json.org/convert?url=https%3A%2F%2Fwww.elobservador.com.uy%2Frss%2Felobservador.xml"
+            "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.elobservador.com.uy%2Frss%2Felobservador.xml&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         },
         {
           sourceId: "2",
           title: "Montevideo.com.uy",
-          endpoint:
-            "https://feed2json.org/convert?url=https%3A%2F%2Fwww.montevideo.com.uy%2Fanxml.aspx%3F59&minify=on"
+          endpoint: ""
         },
         {
           sourceId: "3",
           title: "Brecha",
           endpoint:
-            "https://feed2json.org/convert?url=http%3A%2F%2Fbrecha.com.uy%2Ffeed"
+            "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fbrecha.com.uy%2Ffeed&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         },
         {
           sourceId: "4",
           title: "Agesic",
           endpoint:
-            "https://feed2json.org/convert?url=https%3A%2F%2Fwww.agesic.gub.uy%2Fagesicweb%2Frss_carpeta.jsp%3Fcontentid%3D1937%26site%3D1%26channel%3Dagesic"
+            "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.agesic.gub.uy%2Fagesicweb%2Frss_carpeta.jsp%3Fcontentid%3D1937%26site%3D1%26channel%3Dagesic&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         },
         {
           sourceId: "5",
           title: "180.com.uy",
           endpoint:
-            "https://feed2json.org/convert?url=http%3A%2F%2F180.com.uy%2Ffeed.php"
+            "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2F180.com.uy%2Ffeed.php&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         },
-        {
+        /*{
           sourceId: "6",
           title: "Ministerio de Relaciones Exteriores",
           endpoint:
-            "https://feed2json.org/convert?url=http%3A%2F%2Fwww.mrree.gub.uy%2Ffrontend%2Farss%3F1%2C1%2C1961%2C15%2C1961%2CS%2C15%2C0%2C0%2C0"
-        },
+            "http://www.mrree.gub.uy/frontend/arss?1,1,1961,15,1961,S,15,0,0,0"
+        },*/
         {
           sourceId: "7",
           title: "Presidencia.gub.uy",
           endpoint:
-            "https://feed2json.org/convert?url=https%3A%2F%2Fwww.presidencia.gub.uy%2Frss"
+            "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.presidencia.gub.uy%2Frss&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         }
       ]
     };
