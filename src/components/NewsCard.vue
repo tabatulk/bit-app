@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="item2 in articles" v-bind:key="item2" id="card">
+    <div v-for="item in source" v-bind:key="item" id="card">
       <b-card
         header="featured"
         header-tag="header"

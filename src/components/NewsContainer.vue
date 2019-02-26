@@ -32,7 +32,7 @@ export default {
       axios.get(source.endpoint).then(
         function(res) {
           // eslint-disable-next-line no-console
-          console.log("Estamos imprimiendo el res feed");
+          // console.log("Estamos imprimiendo el res feed");
           // eslint-disable-next-line no-console
           //console.dir(
           //res.data.items // dice que res.items está uncaught in promise - cannot read length of undefined
