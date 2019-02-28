@@ -1,16 +1,14 @@
 <template>
   <div>
-    <div v-for="source in articles" v-bind:key="source" id="card">
-      <div v-for="article in source.items" v-bind:key="article">
+    <div v-for="source in articles" v-bind:key="source">
+      <div v-for="article in source.items" v-bind:key="article" id="card">
         <b-card
           v-bind:header="article.pubDate"
-          header-tag="header"
-          footer="Card Footer"
-          footer-tag="footer"
+          header-tag="header-tag"
           v-bind:title="article.title"
         >
           <b-card-text v-html="article.description">{{article.description}}</b-card-text>
-          <b-button v-bind:href="article.link" variant="primary" target="_blank">{{source.fuente}}</b-button>
+          <b-button v-bind:href="article.link" variant="primary" target="_blank">Leer el artículo</b-button>
         </b-card>
       </div>
     </div>
@@ -31,6 +29,6 @@ export default {
 
 <style>
 #card {
-  margin: 5px;
+  margin: 24px;
 }
 </style>
