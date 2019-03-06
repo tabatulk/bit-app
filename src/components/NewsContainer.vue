@@ -34,19 +34,15 @@ export default {
           // eslint-disable-next-line no-console
           // console.log("Estamos imprimiendo el res feed");
           // eslint-disable-next-line no-console
-          //console.dir(
-          //  source.title // dice que res.items está uncaught in promise - cannot read length of undefined
-          //);
+          console.dir(
+            source.title // dice que res.items está uncaught in promise - cannot read length of undefined
+          );
 
           // Creando un Array
           //articles.push.apply(articles, res.data.items);
 
           //Creando Array de Objetos con Título e items
           articles.push({ fuente: source.title, items: res.data.items });
-
-          // Pasandolo a un Objeto
-          //articles.title = source.title;
-          //articles.items = res.data.items;
         },
         function(err) {
           // eslint-disable-next-line no-console
@@ -57,13 +53,11 @@ export default {
   },
 
   mounted() {
-    // eslint-disable-next-line no-console
-    console.log(">>MOUNTED");
     var comp = this;
-    var sources = Sources.data();
+    var sources = Sources.data().sourcesArray;
     // Este for recorre el array de data de Sources, para ir usando la función getArticles en cada Source
-    for (var i = 0; i < sources.sourcesArray.length; i++) {
-      comp.getArticles(sources.sourcesArray[i], comp.newsArticles);
+    for (var i = 0; i < sources.length; i++) {
+      comp.getArticles(sources[i], comp.newsArticles);
     }
     // eslint-disable-next-line no-console
     console.log("Imprimiendo luego del for");

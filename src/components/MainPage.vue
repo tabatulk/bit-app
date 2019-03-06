@@ -1,25 +1,26 @@
 <template>
-    <div id="panelContainer">
-      <Sources />
-
-    </div>
+  <div id="panelContainer">
+    <Sources/>
+    <NewsContainer/>
+  </div>
 </template>
 
 <script>
-import Sources from './Sources.vue';
-
+import Sources from "./Sources.vue";
+import NewsContainer from "./NewsContainer.vue";
 
 export default {
-  name: 'MainPage',
+  name: "MainPage",
   components: {
-    Sources
+    Sources,
+    NewsContainer
   }
-}
+};
 </script>
 
 <style>
 #panelContainer {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 </style>
