@@ -1,7 +1,7 @@
 <template>
   <div id="panelContainer">
     <Sources/>
-    <NewsContainer/>
+
   </div>
 </template>
 
@@ -12,8 +12,7 @@ import NewsContainer from "./NewsContainer.vue";
 export default {
   name: "MainPage",
   components: {
-    Sources,
-    NewsContainer
+    Sources
   }
 };
 </script>

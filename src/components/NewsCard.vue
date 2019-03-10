@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <div v-for="(source, index) in articles">
-      <div v-for="article in source.items" v-show="checkStatus[index].status==true">
+  
+ 
+  <div id="cards">
+    <div v-for="(source, index) in this.articles">
+
+      <div v-for="article in source.items" v-show="source.status=='true'">
         <b-card 
           v-bind:header="article.pubDate"
-          header-tag="header-tag"
+
           v-bind:title="article.title"
         >
           <b-card-text v-html="article.description">{{article.description}}</b-card-text>
@@ -22,12 +25,12 @@ import Sources from "./Sources.vue";
 export default {
   data() {
     return {
-      checkStatus: Sources.data().sourcesArray
+
     }
   },
   methods: {
 
-  },
+},
   name: "NewsCard",
   props: {
     articles: {
@@ -39,7 +42,8 @@ export default {
 </script>
 
 <style>
-#card {
-  margin: 24px;
+#cards {
+
 }
+
 </style>
