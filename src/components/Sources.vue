@@ -1,23 +1,20 @@
 <template>
-<div id="bothPanels">
-  <div id="leftPanel">
-
-
-  </div>
-<div id="rigthPanel">
+<div>
 <NewsContainer v-bind:sources="this.sourcesArray"/>
 </div>
-  </div>
+
 </template>
 
 <script>
 import NewsContainer from "./NewsContainer.vue";
-
+import NewSourceModal from "./NewSourceModal.vue";
 
 export default {
   name: "Sources",
   components: {
-    NewsContainer
+    NewsContainer,
+    NewSourceModal
+
   },
   data() {
     return {
@@ -76,23 +73,5 @@ export default {
 </script>
 
 <style>
-#sourcesTitle {
-  margin-top: 5px;
-}
-#bothPanels {
-  display: flex;
-  flex-direction: row;
-  width: 900px;
-  height: 800px;
-  margin: 10px;
 
-}
-
-
-#leftPanel {
-  width: 350px;
-  height: 800px;
-  margin: 10px;
-  background-color: gainsboro;
-}
 </style>

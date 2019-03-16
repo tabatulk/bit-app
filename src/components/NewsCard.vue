@@ -5,8 +5,8 @@
     <div v-for="(source, index) in this.articles">
 
       <div v-for="article in source.items" v-show="source.status=='true'">
-        <b-card 
-          v-bind:header="article.pubDate"
+        <b-card id="card"
+          v-bind:header="source.sourceName + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + article.pubDate"
 
           v-bind:title="article.title"
         >
@@ -42,8 +42,8 @@ export default {
 </script>
 
 <style>
-#cards {
-
+#card {
+  margin: 5px;
 }
 
 </style>

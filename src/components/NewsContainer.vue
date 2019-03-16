@@ -5,6 +5,7 @@
       <br>
     <div id="sourcesTitle" v-for="(item, index) in newsArticles">
       
+        
       <b-form-checkbox
         v-bind:id="item.sourceId"
         v-model="item.status"
@@ -23,14 +24,19 @@
       <div>
         <NewsCard v-bind:articles="this.newsArticles"/>
       </div>
+
       <div id="pagination">
         <NewsPagination/>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
+
+
+
 import NewsCard from "./NewsCard.vue";
 import NewsPagination from "./NewsPagination.vue";
 import axios from "axios";
@@ -76,6 +82,7 @@ export default {
             fuente: source.title,
             items: res.data.items,
             sourceId: source.sourceId,
+            sourceName: source.title,
             status: "true"
           });
         },
@@ -85,6 +92,7 @@ export default {
         }
       );
     }
+
   },
 
   mounted() {
@@ -106,15 +114,23 @@ export default {
 
 <style>
 #c1 {
+  width: 100%;
+
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+#c2 {
+  margin-top: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
 #c3 {
   width: 800px;
   height: 100%;
-  margin: 10px;
-  background-color: cadetblue;
+  margin-bottom: 10px;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
