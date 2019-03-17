@@ -1,50 +1,54 @@
 <template>
-  <div id="leftPanel">
-    <H3>Fuentes</H3>
-    <div id="sourcesTitle" v-for="item in sourcesArray" v-bind:key="item">
-      <b-form-checkbox
-        v-bind:id="item.sourceId"
-        v-model="status"
-        value="accepted"
-        unchecked-value="not_accepted"
-      >{{item.title}}</b-form-checkbox>
-    </div>
-    <br>
-    <a href="#">AGREGAR FUENTE</a>
-  </div>
+<div>
+<NewsContainer v-bind:sources="this.sourcesArray"/>
+</div>
+
 </template>
 
 <script>
+import NewsContainer from "./NewsContainer.vue";
+import NewSourceModal from "./NewSourceModal.vue";
+
 export default {
   name: "Sources",
+  components: {
+    NewsContainer,
+    NewSourceModal
+
+  },
   data() {
     return {
       sourcesArray: [
         {
           sourceId: "1",
+          status: "true",
           title: "El observador",
           endpoint:
             "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.elobservador.com.uy%2Frss%2Felobservador.xml&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         },
         {
           sourceId: "2",
+          status: true,
           title: "Montevideo.com.uy",
           endpoint: ""
         },
         {
           sourceId: "3",
+          status: "true",
           title: "Brecha",
           endpoint:
             "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fbrecha.com.uy%2Ffeed&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         },
         {
           sourceId: "4",
+          status: "true",
           title: "Agesic",
           endpoint:
             "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.agesic.gub.uy%2Fagesicweb%2Frss_carpeta.jsp%3Fcontentid%3D1937%26site%3D1%26channel%3Dagesic&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
         },
         {
           sourceId: "5",
+          status: "true",
           title: "180.com.uy",
           endpoint:
             "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2F180.com.uy%2Ffeed.php&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
@@ -57,6 +61,7 @@ export default {
         },*/
         {
           sourceId: "7",
+          status: "true",
           title: "Presidencia.gub.uy",
           endpoint:
             "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.presidencia.gub.uy%2Frss&api_key=ghex2mcxlgochpn4hlc0shegtv04gtccoemo3bn8"
@@ -68,14 +73,5 @@ export default {
 </script>
 
 <style>
-#sourcesTitle {
-  margin-top: 5px;
-}
 
-#leftPanel {
-  width: 350px;
-  height: 800px;
-  margin: 10px;
-  background-color: gainsboro;
-}
 </style>
