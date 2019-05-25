@@ -1,13 +1,10 @@
 <template>
-  
- 
   <div id="cards">
     <div v-for="(source, index) in this.articles">
-
       <div v-for="article in source.items" v-show="source.status=='true'">
-        <b-card id="card"
+        <b-card
+          id="card"
           v-bind:header="source.sourceName + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + article.pubDate"
-
           v-bind:title="article.title"
         >
           <b-card-text v-html="article.description">{{article.description}}</b-card-text>
@@ -21,16 +18,11 @@
 <script>
 import Sources from "./Sources.vue";
 
-
 export default {
   data() {
-    return {
-
-    }
+    return {};
   },
-  methods: {
-
-},
+  methods: {},
   name: "NewsCard",
   props: {
     articles: {
@@ -45,5 +37,4 @@ export default {
 #card {
   margin: 5px;
 }
-
 </style>

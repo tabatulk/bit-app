@@ -1,7 +1,6 @@
 <template>
   <div id="panelContainer">
     <Sources/>
-
   </div>
 </template>
 
@@ -16,6 +15,7 @@ export default {
   }
 };
 </script>
+
 
 <style>
 #panelContainer {

@@ -14,8 +14,12 @@ export default {
   name: 'app',
   components: {
     NavBar,
+  },
+  methods: {
+
   }
 }
+
 </script>
 
 <style>

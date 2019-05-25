@@ -10,6 +10,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
+
           <b-nav-item :to="{ name: 'MainPage' }">Noticias</b-nav-item>
           <b-nav-item :to="{ name: 'Profile' }">Perfil</b-nav-item>
           <b-nav-item :to="{ name: 'Settings' }">Configuración</b-nav-item>
@@ -20,8 +21,13 @@
 </template>
 
 <script>
+
+
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  methods: {
+
+  }
 };
 </script>
 
